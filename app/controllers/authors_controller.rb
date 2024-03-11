@@ -10,7 +10,12 @@ class AuthorsController < ApplicationController
 
   def new
     @author = Author.new
-    @author.books.build
+
+    counter = 3
+
+    counter.times do
+      @author.books.build
+    end
   end
 
   def edit
