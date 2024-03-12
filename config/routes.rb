@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :books
-  resources :authors
-  resources(:tasks)
-  resources(:projects)
-
-  root("projects#index")
+  resources(:addresses)
+  resources(:customers)
+  resources(:books)
+  resources(:authors)
+  # root("authors#index")
 end

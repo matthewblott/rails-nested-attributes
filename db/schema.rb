@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_11_150030) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_155025) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "postal_town"
+    t.string "county"
+    t.string "post_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "addresses_customers", primary_key: ["customer_id", "address_id"], force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "address_id", null: false
+    t.index ["address_id"], name: "index_addresses_customers_on_address_id"
+    t.index ["customer_id"], name: "index_addresses_customers_on_customer_id"
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -25,5 +42,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_150030) do
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "addresses_customers", "addresses"
+  add_foreign_key "addresses_customers", "customers"
   add_foreign_key "books", "authors"
 end

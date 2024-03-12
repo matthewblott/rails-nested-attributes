@@ -16,7 +16,7 @@
     <%= form.text_field :name %>
   </div>
 
-  <%= form.fields_for :books, author.books.each do |book_form| %>
+  <%= form.fields_for :books, author.books do |book_form| %>
     <div>
       <%= book_form.label :title, style: "display: block" %>
       <%= book_form.text_field :title %>
