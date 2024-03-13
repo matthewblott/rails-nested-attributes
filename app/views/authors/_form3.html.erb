@@ -18,6 +18,7 @@
 
   <%= form.fields_for :books, author.books do |book_form| %>
     <div>
+      <strong>Book</strong>
       <%= book_form.label :title, style: "display: block" %>
       <%= book_form.text_field :title %>
     </div>

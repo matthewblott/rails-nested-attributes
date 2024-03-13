@@ -11,19 +11,40 @@
     </div>
   <% end %>
 
+  <h2>Customer</h2>
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
-
   <%= form.fields_for :addresses, customer.addresses do |address_form| %>
     <div>
+      <strong>Address</strong>
       <%= address_form.label :address_line_1, style: "display: block" %>
       <%= address_form.text_field :address_line_1 %>
     </div>
-  <% end %>
 
+    <div>
+      <%= address_form.label :address_line_2, style: "display: block" %>
+      <%= address_form.text_field :address_line_2 %>
+    </div>
+
+    <div>
+      <%= address_form.label :postal_town, style: "display: block" %>
+      <%= address_form.text_field :postal_town %>
+    </div>
+
+    <div>
+      <%= address_form.label :county, style: "display: block" %>
+      <%= address_form.text_field :county %>
+    </div>
+
+    <div>
+      <%= address_form.label :post_code, style: "display: block" %>
+      <%= address_form.text_field :post_code %>
+    </div>
+
+  <% end %>
 
   <div>
     <%= form.submit %>
