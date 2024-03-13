@@ -4,7 +4,7 @@
 
 <div id="authors">
   <% @authors.each do |author| %>
-    <%= render author %>
+    <%= author.name %>
     <p>
       <%= link_to "Show this author", author %>
     </p>

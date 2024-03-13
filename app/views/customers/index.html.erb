@@ -4,7 +4,9 @@
 
 <div id="customers">
   <% @customers.each do |customer| %>
-    <%= render customer %>
+    <div>
+      <%= customer.name %>
+    </div>
     <p>
       <%= link_to "Show this customer", customer %>
     </p>
